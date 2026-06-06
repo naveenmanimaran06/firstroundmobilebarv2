@@ -4,52 +4,55 @@ import { useState } from "react";
 
 const FAQS = [
   {
-    question: "What does \"dry-hire\" mean?",
+    question: "What exactly is a dry-hire bar?",
     answer:
-      "You purchase the alcohol yourself at retail prices — no markup from us. We provide everything else: the bar setup, bartender, tools, ice, garnishes, mixers, cups, and napkins. We'll send you a detailed shopping list in advance so you know exactly what to buy.",
+      "You purchase the alcohol yourself at retail prices (Costco, Total Wine, etc.) and we bring everything else: bar setup, tools, fresh citrus, garnishes, ice, mixers, syrups, and a professional bartender. We send you a detailed shopping list. Most clients save significantly compared to full-service bars.",
   },
   {
-    question: "How far in advance should I book?",
+    question: "How far do you travel?",
     answer:
-      "We recommend booking at least 3–4 weeks in advance, especially for weekend events. Popular dates (holidays, wedding season) can fill up faster, so the earlier the better. Last-minute inquiries are always welcome though — we'll do our best to accommodate.",
+      "We're based in Tracy, CA and cover Stockton, Modesto, Livermore, Pleasanton, Dublin, Fremont, San Jose, Sacramento, and beyond. No travel fee within 30 miles of Tracy. $75 surcharge beyond that.",
   },
   {
-    question: "What's included in the service?",
+    question: "Are you licensed and insured?",
     answer:
-      "Everything except the alcohol itself. That includes the mobile bar setup, a professional bartender, all bar tools and equipment, ice, garnishes, fresh citrus, mixers, cups, napkins, straws, and full cleanup at the end of the night.",
+      "Yes. Full liability insurance, California ABC compliant. We can provide a certificate of insurance for your venue.",
   },
   {
-    question: "Do you serve non-alcoholic drinks?",
+    question: "Do you offer mocktails?",
     answer:
-      "Absolutely. We offer creative mocktails that look and taste just as good as the cocktails. Non-drinkers and designated drivers deserve great drinks too. We can build a full mocktail menu alongside your cocktail menu.",
+      "Every event includes a dedicated zero-proof menu — built drinks, real ingredients, same glassware. Non-drinking guests get the same attention and craft as everyone else.",
   },
   {
-    question: "What areas do you serve?",
+    question: "What's included in your packages?",
     answer:
-      "We're based in Tracy, California and serve the Central Valley, East Bay, and greater Bay Area. Travel fees may apply for events outside our core service area — just ask and we'll let you know.",
+      "Professional bartender(s), portable bar setup, all mixing tools, fresh citrus and garnishes, ice, mixers, syrups, cups, napkins, and a custom cocktail menu. Add-ons include mocktail station, mimosa bar, and signature cocktail creation.",
   },
   {
-    question: "How does pricing work?",
+    question: "How early should I book?",
     answer:
-      "Pricing is based on guest count, event duration, and the complexity of the drink menu. After your inquiry, we'll send a fully transparent, itemized quote — no hidden fees. You only pay for what you need.",
+      "4–8 weeks for standard events, 3–6 months for weddings or large events. We do accommodate last-minute bookings when available.",
+  },
+  {
+    question: "What's the minimum event size?",
+    answer:
+      "Around 15 guests. No strict maximum — we've served 200+ guest events with additional staffing.",
   },
 ];
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+  function toggle(i: number) {
+    setOpenIndex((prev) => (prev === i ? null : i));
+  }
+
   return (
-    <section id="faq" className="bg-cream-paper py-24 px-6">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-16">
-          <p
-            className="text-terracotta text-[14px] font-semibold uppercase mb-4"
-            style={{ letterSpacing: "var(--tracking-eyebrow)" }}
-          >
-            FAQ
-          </p>
+    <section id="faq" className="bg-cream-paper py-24 md:py-32 px-6">
+      <div className="max-w-[680px] mx-auto">
+        <div className="text-center mb-14">
           <h2
-            className="font-display text-4xl md:text-5xl font-bold text-ink mb-6"
+            className="font-display text-3xl md:text-5xl font-bold text-ink"
             style={{ letterSpacing: "var(--tracking-display)" }}
           >
             Common Questions
@@ -57,39 +60,32 @@ export default function FAQSection() {
         </div>
 
         <div className="space-y-3">
-          {FAQS.map((faq, index) => {
-            const isOpen = openIndex === index;
+          {FAQS.map((faq, i) => {
+            const isOpen = openIndex === i;
             return (
               <div
-                key={faq.question}
-                className="bg-cream rounded-xl border border-ink/8 overflow-hidden"
+                key={i}
+                className="bg-white rounded-xl overflow-hidden shadow-1"
               >
                 <button
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer"
+                  onClick={() => toggle(i)}
+                  className="w-full flex items-center justify-between px-7 py-6 text-left cursor-pointer"
+                  aria-expanded={isOpen}
                 >
-                  <span className="font-display text-lg font-bold text-ink pr-4">
+                  <span className="font-semibold text-ink text-[16px] md:text-[17px] pr-6 leading-snug">
                     {faq.question}
                   </span>
-                  <svg
-                    className={`shrink-0 h-5 w-5 text-terracotta transition-transform ${
-                      isOpen ? "rotate-180" : ""
+                  <span
+                    className={`text-terracotta text-2xl font-bold flex-shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-45" : ""
                     }`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
+                    +
+                  </span>
                 </button>
                 {isOpen && (
-                  <div className="px-6 pb-5">
-                    <p className="text-ink/60 leading-relaxed text-[16px]">
+                  <div className="px-7 pb-6 -mt-1">
+                    <p className="text-ink/70 leading-relaxed text-[16px] max-w-[52ch]">
                       {faq.answer}
                     </p>
                   </div>
@@ -97,6 +93,17 @@ export default function FAQSection() {
               </div>
             );
           })}
+        </div>
+
+        <div className="text-center mt-14">
+          <p className="text-ink/60 text-[16px] mb-5">Still have questions?</p>
+          <a
+            href="#book"
+            className="inline-flex items-center bg-terracotta hover:bg-terracotta-soft text-white font-semibold text-[16px] px-8 py-4 rounded-full transition-colors"
+            style={{ letterSpacing: "var(--tracking-button)" }}
+          >
+            Ask us directly
+          </a>
         </div>
       </div>
     </section>

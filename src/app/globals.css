@@ -25,6 +25,15 @@
   --color-clove: #8C2A19;
   --color-clove-soft: #A8341F;
 
+  --color-white: #ffffff;
+
+  /* Shadows */
+  --shadow-1: 0 1px 3px rgba(31, 20, 16, 0.08);
+  --shadow-2: 0 4px 16px rgba(31, 20, 16, 0.12);
+  --shadow-3: 0 14px 32px -8px rgba(31, 20, 16, 0.2);
+  --shadow-lift: 0 24px 56px -12px rgba(31, 20, 16, 0.3),
+                 0 2px 4px rgba(31, 20, 16, 0.1);
+
   /* Font family aliases */
   --font-display: var(--font-playfair);
   --font-sans: var(--font-lato);
@@ -47,33 +56,6 @@
   --fg-ink: var(--color-ink);
   --fg-ink-muted: rgba(31, 20, 16, 0.7);
   --fg-ink-dim: rgba(31, 20, 16, 0.5);
-
-  /* Spacing */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 48px;
-  --space-8: 64px;
-  --space-9: 96px;
-  --space-10: 128px;
-
-  /* Radii */
-  --radius-xs: 2px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 14px;
-  --radius-xl: 24px;
-  --radius-pill: 999px;
-
-  /* Elevation */
-  --shadow-1: 0 1px 3px rgba(31, 20, 16, 0.08);
-  --shadow-2: 0 4px 16px rgba(31, 20, 16, 0.12);
-  --shadow-3: 0 14px 32px -8px rgba(31, 20, 16, 0.2);
-  --shadow-lift: 0 24px 56px -12px rgba(31, 20, 16, 0.3),
-                 0 2px 4px rgba(31, 20, 16, 0.1);
 
   /* Type tokens */
   --tracking-eyebrow: 0.14em;

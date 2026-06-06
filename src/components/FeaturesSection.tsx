@@ -1,83 +1,67 @@
+import { GlassWater, Calendar, MapPin, Leaf } from "lucide-react";
+
 const FEATURES = [
   {
-    title: "Dry-Hire Model",
+    icon: GlassWater,
+    title: "Craft Cocktails",
     description:
-      "You purchase the alcohol at retail — no markup. We bring the bar, tools, ice, garnishes, and mixers. You save money and keep full control.",
-    icon: "&#9830;",
+      "Custom menus built around your event — from signature cocktails named after you to classics done right. Fresh citrus, house syrups, proper glassware.",
   },
   {
-    title: "Custom Cocktail Menus",
+    icon: Leaf,
+    title: "Zero-Proof Menu",
     description:
-      "Every event gets a hand-crafted drink menu designed around your taste, theme, and budget. Signature cocktails included.",
-    icon: "&#9733;",
+      "Every event includes a dedicated mocktail menu. Built drinks, real ingredients, same glassware — not an afterthought.",
   },
   {
-    title: "Full Bar Setup & Cleanup",
+    icon: Calendar,
+    title: "Dry Hire — You Save",
     description:
-      "We arrive early, build a beautiful bar, serve all night, and pack out at the end. You don't lift a finger.",
-    icon: "&#9670;",
+      "You provide the alcohol at retail prices, we bring everything else: bar, tools, garnishes, ice, mixers, and staff. We send you the shopping list.",
   },
   {
-    title: "Licensed & Insured",
+    icon: MapPin,
+    title: "Tracy to the Bay",
     description:
-      "Fully licensed to serve in California with liability insurance. Your venue and guests are covered.",
-    icon: "&#10038;",
-  },
-  {
-    title: "Mocktail Stations",
-    description:
-      "Non-drinkers deserve great drinks too. We offer creative mocktails that look and taste just as good as the real thing.",
-    icon: "&#10047;",
-  },
-  {
-    title: "Events of Any Size",
-    description:
-      "From an intimate dinner for 15 to a wedding with 200 guests — we scale our service to match your event perfectly.",
-    icon: "&#9827;",
+      "Based in Tracy, CA. We travel to Stockton, Modesto, Livermore, San Jose, Sacramento, and everywhere in between.",
   },
 ];
 
 export default function FeaturesSection() {
   return (
-    <section id="services" className="bg-cream-paper py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <p
-            className="text-terracotta text-[14px] font-semibold uppercase mb-4"
-            style={{ letterSpacing: "var(--tracking-eyebrow)" }}
-          >
-            Why First Round
-          </p>
+    <section className="bg-cream-paper py-24 md:py-32 px-6">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-16 md:mb-20">
           <h2
-            className="font-display text-4xl md:text-5xl font-bold text-ink mb-6"
+            className="font-display text-3xl md:text-5xl font-bold text-ink text-balance"
             style={{ letterSpacing: "var(--tracking-display)" }}
           >
-            Everything You Need, Nothing You Don&apos;t
+            Everything your bar needs.
+            <br className="hidden md:block" />
+            <span className="text-terracotta"> Nothing you don&apos;t.</span>
           </h2>
-          <p className="text-ink/60 text-lg max-w-2xl mx-auto">
-            Professional bar service designed to be easy, affordable, and
-            tailored to your event.
-          </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {FEATURES.map((feature) => (
-            <div
-              key={feature.title}
-              className="bg-cream rounded-2xl p-8 border border-ink/8 hover:border-terracotta/30 transition-colors group"
-              style={{ boxShadow: "var(--shadow-1)" }}
-            >
-              <div className="w-12 h-12 rounded-xl bg-terracotta/10 flex items-center justify-center text-terracotta text-xl mb-5 group-hover:bg-terracotta/15 transition-colors">
-                <span dangerouslySetInnerHTML={{ __html: feature.icon }} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {FEATURES.map((feature) => {
+            const Icon = feature.icon;
+            return (
+              <div
+                key={feature.title}
+                className="bg-white rounded-2xl p-8 md:p-10 shadow-2"
+              >
+                <div className="w-11 h-11 bg-terracotta/10 rounded-xl flex items-center justify-center mb-5">
+                  <Icon size={22} className="text-terracotta" />
+                </div>
+                <h3 className="font-display text-xl md:text-[22px] font-bold text-ink mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-ink/70 text-[16px] leading-relaxed max-w-[50ch]">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="font-display text-xl font-bold text-ink mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-ink/60 leading-relaxed text-[16px]">
-                {feature.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
