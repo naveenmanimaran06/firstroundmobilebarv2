@@ -1,29 +1,84 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-warm-50: #fdf8f0;
-  --color-warm-100: #f5e6d0;
-  --color-warm-200: #e8cba0;
-  --color-warm-300: #d4a96e;
-  --color-warm-400: #c08a45;
-  --color-warm-500: #a67230;
-  --color-warm-600: #8b5e28;
-  --color-warm-700: #6e4a20;
-  --color-warm-800: #523718;
-  --color-warm-900: #3a2710;
-  --color-amber-warm: #b8860b;
-  --color-cream: #faf6ef;
-  --color-espresso: #2c1810;
-  --color-champagne: #f7e7ce;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Brand palette */
+  --color-terracotta: #B34317;
+  --color-terracotta-deep: #8A2F0E;
+  --color-terracotta-soft: #C9572F;
+  --color-ember: #E2754A;
+
+  --color-cream: #F7E5BB;
+  --color-cream-warm: #F0D9A4;
+  --color-cream-deep: #E3C485;
+  --color-cream-paper: #FCEFD6;
+
+  --color-ink: #1C100B;
+  --color-ink-soft: #2A1A12;
+  --color-ink-line: #3A2A22;
+
+  --color-amber: #ED7E2C;
+  --color-gold: #EFB22F;
+  --color-gold-spark: #EFB22F;
+  --color-olive: #8E9536;
+  --color-olive-deep: #5C6225;
+  --color-maraschino: #C9322E;
+  --color-clove: #8C2A19;
+  --color-clove-soft: #A8341F;
+
+  /* Font family aliases */
+  --font-display: var(--font-playfair);
+  --font-sans: var(--font-lato);
 }
 
 :root {
-  --background: #faf6ef;
-  --foreground: #2c1810;
+  /* Semantic surfaces */
+  --bg: var(--color-terracotta);
+  --bg-dark: var(--color-ink);
+  --bg-cream: var(--color-cream-paper);
+  --surface: var(--color-ink-soft);
+  --surface-cream: var(--color-cream);
+  --hairline: rgba(245, 231, 208, 0.16);
+  --hairline-ink: rgba(31, 20, 16, 0.14);
+
+  /* Semantic text */
+  --fg: var(--color-cream);
+  --fg-muted: var(--color-cream-deep);
+  --fg-dim: rgba(245, 231, 208, 0.6);
+  --fg-ink: var(--color-ink);
+  --fg-ink-muted: rgba(31, 20, 16, 0.7);
+  --fg-ink-dim: rgba(31, 20, 16, 0.5);
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Radii */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Elevation */
+  --shadow-1: 0 1px 3px rgba(31, 20, 16, 0.08);
+  --shadow-2: 0 4px 16px rgba(31, 20, 16, 0.12);
+  --shadow-3: 0 14px 32px -8px rgba(31, 20, 16, 0.2);
+  --shadow-lift: 0 24px 56px -12px rgba(31, 20, 16, 0.3),
+                 0 2px 4px rgba(31, 20, 16, 0.1);
+
+  /* Type tokens */
+  --tracking-eyebrow: 0.14em;
+  --tracking-button: 0.06em;
+  --tracking-display: -0.02em;
 }
 
 html {
@@ -31,7 +86,14 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--fg-ink);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@utility text-balance {
+  text-wrap: balance;
 }

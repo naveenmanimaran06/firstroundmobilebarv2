@@ -16,22 +16,21 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "First Round Mobile Bar | Craft Cocktails for Your Private Events",
+  title: "First Round Mobile Bar — Tracy · Bay Area",
   description:
-    "Bringing the bar to you. First Round Mobile Bar serves handcrafted cocktails at intimate gatherings, dinner parties, birthdays, and small private events.",
+    "Craft cocktails, mocktail stations, and full bar service for weddings, parties, and corporate events across Tracy, the Central Valley, and East Bay.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html
-      lang="en"
-      className={`${playfair.variable} ${lato.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en">
+      <body className={`${playfair.variable} ${lato.variable} font-sans`}>
+        {children}
+      </body>
     </html>
   );
 }

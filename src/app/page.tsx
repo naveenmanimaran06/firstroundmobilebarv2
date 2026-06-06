@@ -1,29 +1,27 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import HowItWorks from "@/components/HowItWorks";
-import Menu from "@/components/Menu";
-import Testimonials from "@/components/Testimonials";
-import Gallery from "@/components/Gallery";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import FeaturesSection from "@/components/FeaturesSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
+import MenuSection from "@/components/MenuSection";
+import ReviewsSection from "@/components/ReviewsSection";
+import BookingSection from "@/components/BookingSection";
+import FAQSection from "@/components/FAQSection";
+import FooterSection from "@/components/FooterSection";
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <HowItWorks />
-        <Menu />
-        <Testimonials />
-        <Gallery />
-        <Contact />
-      </main>
-      <Footer />
-    </>
+    <main>
+      <Navigation />
+      <HeroSection />
+      <AboutSection />
+      <FeaturesSection />
+      <HowItWorksSection />
+      <MenuSection />
+      <ReviewsSection />
+      <BookingSection />
+      <FAQSection />
+      <FooterSection />
+    </main>
   );
 }
