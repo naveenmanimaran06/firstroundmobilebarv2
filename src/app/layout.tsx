@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Lato } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
+const retrovia = localFont({
+  src: [
+    { path: "../fonts/Retrovia.otf", weight: "400 700", style: "normal" },
+    { path: "../fonts/Retrovia.ttf", weight: "400 700", style: "normal" },
+  ],
+  variable: "--font-retrovia",
   display: "swap",
 });
 
-const lato = Lato({
-  variable: "--font-lato",
-  subsets: ["latin"],
-  weight: ["300", "400", "700"],
+const retroGramophone = localFont({
+  src: [
+    { path: "../fonts/RetroGramophone.otf", weight: "400 700", style: "normal" },
+    { path: "../fonts/RetroGramophone.ttf", weight: "400 700", style: "normal" },
+  ],
+  variable: "--font-retrogramophone",
   display: "swap",
 });
 
@@ -28,7 +33,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${lato.variable} font-sans`}>
+      <body className={`${retrovia.variable} ${retroGramophone.variable} font-sans`}>
         {children}
       </body>
     </html>

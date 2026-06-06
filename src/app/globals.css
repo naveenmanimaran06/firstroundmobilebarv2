@@ -34,9 +34,9 @@
   --shadow-lift: 0 24px 56px -12px rgba(31, 20, 16, 0.3),
                  0 2px 4px rgba(31, 20, 16, 0.1);
 
-  /* Font family aliases */
-  --font-display: var(--font-playfair);
-  --font-sans: var(--font-lato);
+  /* Font family aliases — mapped from localFont variables in layout.tsx */
+  --font-display: var(--font-retrovia);
+  --font-sans: var(--font-retrogramophone);
 }
 
 :root {
